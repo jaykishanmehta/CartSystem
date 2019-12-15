@@ -10,11 +10,13 @@ public class DiscountHelper {
 		
 		System.out.println(" -- Discount Helper -- ");
 
-		Scanner sc = new Scanner(System.in);
-		
-		for (int i = 0; i < 3; i++) {
-			System.out.print("Enter bill amount: ");
-			System.out.println("Final Bill amount: " + getDiscountedPrice(sc.nextFloat()));
+		try (Scanner sc = new Scanner(System.in)) {
+			for (int i = 0; i < 3; i++) {
+				System.out.print("Enter bill amount: ");
+				System.out.println("Final Bill amount: " + getDiscountedPrice(sc.nextFloat()));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
 	}

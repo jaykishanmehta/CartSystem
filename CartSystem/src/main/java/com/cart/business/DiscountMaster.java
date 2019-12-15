@@ -24,9 +24,9 @@ public class DiscountMaster {
 	 * 
 	 */
 	private static void initDefaultDiscount() {
-		discountRange.put(1, new Discount(1, 4999, 0));
-		discountRange.put(5000, new Discount(5000, 9999, 10));
-		discountRange.put(10000, new Discount(10000, 1000000, 20));
+		discountRange.put(1, new Discount(1, 5000, 0));
+		discountRange.put(5000, new Discount(5001, 10000, 10));
+		discountRange.put(10000, new Discount(10001, 1000000, 20));
 	}
 	
 	/**
@@ -39,7 +39,7 @@ public class DiscountMaster {
 		float rate = 0;
 		
 		for (Discount dis : discountRange.values()) {
-			if(amount > dis.getStartRange() && amount < dis.getEndRange()) {
+			if(amount >= dis.getStartRange() && amount <= dis.getEndRange()) {
 				return dis.getRate();
 			}
 		}
